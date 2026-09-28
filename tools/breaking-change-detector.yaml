@@ -1,0 +1,18 @@
+name: breaking-change-detector
+version: 1.0.0
+description: "Detects removed endpoints and newly required request parameters in OpenAPI schemas"
+input_schema:
+  type: object
+  properties:
+    diff_summary_json:
+      type: string
+      description: "JSON string with removed_endpoints and new_required_params lists"
+  required:
+    - diff_summary_json
+implementation:
+  type: script
+  path: breaking_change_detector.py
+  runtime: python3
+annotations:
+  read_only: true
+  idempotent: true

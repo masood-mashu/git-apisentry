@@ -1,0 +1,18 @@
+name: schema-syntax-validator
+version: 1.0.0
+description: "Validates basic structural compliance of OpenAPI path and operation definitions"
+input_schema:
+  type: object
+  properties:
+    endpoint_path:
+      type: string
+      description: "API path string (e.g. /v1/users/{id})"
+  required:
+    - endpoint_path
+implementation:
+  type: script
+  path: schema_syntax_validator.py
+  runtime: python3
+annotations:
+  read_only: true
+  idempotent: true

@@ -1,0 +1,39 @@
+spec_version: "0.1.0"
+name: git-apisentry
+version: 1.0.0
+description: "Autonomous OpenAPI Spec Drift, Breaking Change & Semantic Versioning Auditor Agent"
+author: "masood-mashu"
+license: "Apache-2.0"
+
+model:
+  preferred: "openai:gpt-4o"
+  fallback:
+    - "anthropic:claude-3-5-sonnet"
+    - "openai:gpt-4o-mini"
+  constraints:
+    temperature: 0.1
+    max_tokens: 4096
+
+skills:
+  - api-breaking-change-analysis
+  - semver-compliance-verification
+
+tools:
+  - breaking-change-detector
+  - semver-drift-calculator
+  - schema-syntax-validator
+
+runtime:
+  max_turns: 50
+  timeout: 120
+
+tags:
+  - developer-tools
+  - openapi
+  - api-governance
+  - semver
+  - passport-challenge
+
+metadata:
+  passport_id: "aps-apisentry-01"
+  passport_category: "Developer tools"
