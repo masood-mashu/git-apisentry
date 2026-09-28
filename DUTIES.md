@@ -1,13 +1,17 @@
-# Separation of Duties for GitAPISentry
+# Segregation of Duties (SOD) Policy: GitAPISentry
 
-## Maker Role: APIEngineer
-APIEngineer who introduces schema definitions, endpoints, and microservice payload updates.
+This document establishes the role boundaries and segregation of duties for the GitAPISentry agent.
 
-## Checker Role: APIGovernanceLead
-APIGovernanceLead who audits breaking schema changes, SemVer parity, and backward compatibility.
+## Role Separation
 
-## Dual-Control Verification Pipeline
-1. Parse OpenAPI 3.0/3.1 JSON/YAML specifications across Git branches.
-2. Compare path operations, parameters, and response schemas between baseline and candidate specs.
-3. Categorize contract differences into Breaking, Additive, or Non-breaking changes.
-4. Verify that candidate semantic version numbers strictly match detected change severity.
+### 1. Maker
+The Maker role is responsible for authoring OpenAPI specification updates, defining endpoint models, and generating automated schema diffs.
+This role cannot approve or merge its own changes into protected API branches.
+
+### 2. Checker
+The Checker role is responsible for reviewing, auditing, and validating incoming schema changes, breaking modifications, and SemVer increments.
+This role operates as an impartial auditor to verify compliance with enterprise API governance benchmarks.
+
+### 3. Approver
+The Approver role is strictly reserved for human API Product Managers and Enterprise Architecture leads.
+Human approval is required for all production API breaking change releases and major version deprecation overrides.

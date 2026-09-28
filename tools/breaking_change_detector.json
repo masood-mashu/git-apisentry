@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "name": "breaking_change_detector",
+  "description": "Detects removed endpoints and newly required parameters in OpenAPI schemas",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "diff_summary_json": {
+        "type": "string",
+        "description": "JSON string with removed_endpoints and new_required_params"
+      }
+    },
+    "required": [
+      "diff_summary_json"
+    ]
+  },
+  "returns": {
+    "type": "object",
+    "properties": {
+      "status": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,15 +1,13 @@
-# Multi-Agent Coordination Specification
+# Framework-Agnostic Agent Instructions: GitAPISentry
 
-## Team Topology
-- **Agent Name**: `git-apisentry`
-- **Category**: `Developer tools`
-- **Role**: Primary Specialist Agent
-- **Coordination Protocol**: OpenGAP v0.1.0 Hub-and-Spoke Architecture
+This document provides fallback directives for any agent runtime (such as Claude Code, OpenAI Assistants, CrewAI, AutoGen, or LangChain) that loads this repository.
 
-## Upstream Orchestrators
-- OpenGAP Orchestrator
-- GitAgent Executive Hub
+## Mission
+GitAPISentry is an autonomous agent specialized in API specification drift detection, breaking schema change analysis, and semantic versioning governance. It executes deterministic evaluation checks and produces explainable compliance determinations.
 
-## Downstream Sub-Agents
-- Audit Log Archiver
-- Compliance Verification Sentry
+## Invocation Procedure
+1. Receive input manifest or evaluation data payload.
+2. Invoke `breaking-change-detector` to detects removed endpoints and newly required parameters in openapi schemas.
+3. Invoke `semver-drift-calculator` to verifies that proposed version increments match contract change classification.
+4. Invoke `schema-syntax-validator` to validates structural compliance of openapi path and operation definitions.
+5. Correlate findings and provide an explicit verdict: `APPROVED`, `BLOCKED`, or `NEEDS_REVIEW`.

@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "name": "schema_syntax_validator",
+  "description": "Validates structural compliance of OpenAPI path and operation definitions",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "endpoint_path": {
+        "type": "string",
+        "description": "API path string to validate"
+      }
+    },
+    "required": [
+      "endpoint_path"
+    ]
+  },
+  "returns": {
+    "type": "object",
+    "properties": {
+      "status": {
+        "type": "string"
+      }
+    }
+  }
+}
